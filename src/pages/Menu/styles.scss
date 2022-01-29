@@ -1,4 +1,18 @@
+#btnControl {
+  display: none;
+}
+
+#btnControl:checked + label {
+  font-size: 25px;
+}
+
+#btnControl:checked + .css-menu__main {
+  transform: translateY(0);
+}
+
 .css-menu {
+  overflow: hidden;
+
   &__button {
     width: 40px;
     background-color: #7a7a7a;
@@ -24,7 +38,8 @@
 
   &__main {
     margin: 20px 50px;
-    overflow: hidden;
+    transform: translateY(-100%);
+    transition: all 0.5s;
   }
 
   &__item {
@@ -35,14 +50,11 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-bottom: 20px;
     
     &__wrapper {
-      transform: translateY(-100%);
-      transition: all 0.5s;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
+      // transform: translateY(-100%);
+      // transition: all 0.5s;
     }
   }
 }
