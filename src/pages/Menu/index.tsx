@@ -24,10 +24,10 @@ export default function Menu() {
   }, [menuContainerRef])
 
   return <div className={`css-menu ${isOpen && 'open'}`}>
-    {/* <button className='css-menu__button' onClick={toggle}>
+    <button className='css-menu__button' onClick={toggle}>
       <div className='css-menu__button__dash'></div>
       <div className='css-menu__button__dash'></div>
-    </button> */}
+    </button>
     <input type="checkbox" id="btnControl" />
     <label className="btn" htmlFor="btnControl">Click me!</label>
     <div className='css-menu__main'>
