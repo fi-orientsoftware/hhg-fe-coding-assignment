@@ -1,46 +1,73 @@
-#btnControl {
+#toggle-control {
   display: none;
 }
 
-#btnControl:checked + label {
-  font-size: 25px;
+.toggle-button {
+  width: 40px;
+  background-color: #7a7a7a;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-#btnControl:checked + .css-menu__main {
-  transform: translateY(0);
+.toggle-button::before,
+.toggle-button::after {
+  content: "";
+  width: 70%;
+  height: 4px;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+.toggle-button::before {
+  margin-bottom: 3px;
+}
+
+#toggle-control:checked + label {
+  opacity: .7;
+}
+
+.dash {
+  width: 70%;
+  height: 4px;
+  border-radius: 10px;
+  background-color: #000;
+
+  &:first-of-type {
+    margin-bottom: 2px;
+  }
+}
+
+.menu-container {
+  margin: 20px 50px;
+  overflow: hidden;
+}
+
+.menu-item-wrapper {
+  transform: translateY(-100%);
+  transition: all 0.5s;
+}
+
+#toggle-control:checked ~ .menu-container > .menu-item-wrapper {
+  transform: translateY(0%);
+}
+
+.menu-item {
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .css-menu {
-  overflow: hidden;
 
-  &__button {
-    width: 40px;
-    background-color: #7a7a7a;
-    padding: 10px 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    
-    &__dash {
-      width: 70%;
-      height: 4px;
-      border-radius: 10px;
-      background-color: #000;
-
-      &:first-of-type {
-        margin-bottom: 2px;
-      }
-    }
-  }
-
-  &__main {
-    margin: 20px 50px;
-    transform: translateY(-100%);
-    transition: all 0.5s;
-  }
 
   &__item {
     height: 40px;
@@ -53,8 +80,8 @@
     margin-bottom: 20px;
     
     &__wrapper {
-      // transform: translateY(-100%);
-      // transition: all 0.5s;
+      transform: translateY(-100%);
+      transition: all 0.5s;
     }
   }
 }

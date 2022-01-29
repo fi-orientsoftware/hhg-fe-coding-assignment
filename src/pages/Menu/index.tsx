@@ -1,17 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 export default function Menu() {
-  const [isOpen, open] = useState(false)
+  const [isChecked, check] = useState(false)
   const menuContainerRef = useRef<HTMLDivElement>(null);
 
-  const toggle = () => {
-    open((state) => !state)
-  }
+  const handleCheckbox = () => check(value => !value)
 
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (menuContainerRef.current && event.target.className !== 'css-menu__button' && !menuContainerRef.current.contains(event.target)) {
-        open(false)
+      if (menuContainerRef.current && event.target.className !== 'toggle-button' && !menuContainerRef.current.contains(event.target)) {
+        check(false)
       }
     }
 
@@ -23,19 +21,17 @@ export default function Menu() {
     };
   }, [menuContainerRef])
 
-  return <div className={`css-menu ${isOpen && 'open'}`}>
-    <button className='css-menu__button' onClick={toggle}>
-      <div className='css-menu__button__dash'></div>
-      <div className='css-menu__button__dash'></div>
-    </button>
-    <input type="checkbox" id="btnControl" />
-    <label className="btn" htmlFor="btnControl">Click me!</label>
-    <div className='css-menu__main'>
-      <a href='/'><div className='css-menu__item'>1</div></a>
-      <a href='/'><div className='css-menu__item'>2</div></a>
-      <a href='/'><div className='css-menu__item'>3</div></a>
-      <a href='/'><div className='css-menu__item'>4</div></a>
-      <a href='/'><div className='css-menu__item'>5</div></a>
+  return <div className='css-menu'>
+    <input type="checkbox" id="toggle-control" checked={isChecked} onChange={handleCheckbox} />
+    <label className="toggle-button" htmlFor="toggle-control" />
+    <div className='menu-container'>
+      <div ref={menuContainerRef} className='menu-item-wrapper'>
+        <a href='/'><div className='menu-item'>1</div></a>
+        <a href='/'><div className='menu-item'>2</div></a>
+        <a href='/'><div className='menu-item'>3</div></a>
+        <a href='/'><div className='menu-item'>4</div></a>
+        <a href='/'><div className='menu-item'>5</div></a>
+      </div>
     </div>
   </div>;
 }
