@@ -1,0 +1,12 @@
+.main-layout {
+    font-family: $main-font;
+    height: 100vh;
+    
+    &__content {
+        background-color: #ffffff;
+        width: 100%;
+        padding: 15px 25px;
+        height: 100%;
+        overflow: auto;
+    }
+}

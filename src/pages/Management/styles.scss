@@ -1,0 +1,13 @@
+.management {
+    &__table-header {
+        margin: 10px 0 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    }
+}

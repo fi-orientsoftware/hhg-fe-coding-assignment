@@ -1,0 +1,14 @@
+// button component style
+.btn {
+    &--cta {
+        cursor: pointer;
+        padding: 5px 15px;
+        border-radius: 6px;
+        color: $main-btn-text-color;
+        font-weight: 500;
+        background-color: $main-btn-color;
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
