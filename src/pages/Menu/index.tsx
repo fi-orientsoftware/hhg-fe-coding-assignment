@@ -7,13 +7,13 @@ export default function Menu() {
   const handleCheckbox = () => check(value => !value)
 
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (menuContainerRef.current && event.target.className !== 'toggle-button' && !menuContainerRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent): void => {
+      const target = event.target as Element;
+      if (menuContainerRef.current && target.className !== 'toggle-button' && !menuContainerRef.current.contains(target)) {
         check(false)
       }
     }
 
-    // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       // Unbind the event listener on clean up

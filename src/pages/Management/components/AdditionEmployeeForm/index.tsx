@@ -1,12 +1,13 @@
 import { Form, FormInstance, Input, Modal, Spin } from "antd";
 import React, { FC } from "react";
+import { IEmployeeData } from "../../../../services/employeeServices";
 
 export interface IAdditionEmployeeFormProps {
 	addNewFormInstance: FormInstance<any>;
 	isVisible: boolean;
 	isAddingEmployee: boolean;
 	handleCloseModal: () => void;
-	handleAddNew: (data: any) => void;
+	handleAddNew: (data: IEmployeeData) => void;
 }
 
 const AdditionEmployeeForm: FC<IAdditionEmployeeFormProps> = ({

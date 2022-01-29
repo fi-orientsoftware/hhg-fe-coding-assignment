@@ -5,7 +5,7 @@ export interface IEmployeeFetchParams {
 	limit?: number;
 }
 
-export interface IEmployeePostBody {
+export interface IEmployeeData {
 	name: string;
 	email: string;
 	position: string;
@@ -14,7 +14,8 @@ export interface IEmployeePostBody {
 const listEmployees = (params: IEmployeeFetchParams) =>
 	axiosService.get("/employee?sortBy=createdAt&order=desc", { params });
 
-const addNewEmployee = (data: IEmployeePostBody) =>
+const addNewEmployee = (data: IEmployeeData) =>
 	axiosService.post("/employee", data);
 
 export { listEmployees, addNewEmployee };
+

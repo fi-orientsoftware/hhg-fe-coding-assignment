@@ -3,7 +3,7 @@ import { DEFAULT_PAGE, PAGE_SIZE } from "../constants";
 
 const useFetchWithPagination = (
 	fetchCallback: (params: any) => Promise<any>,
-	pageSize: number = PAGE_SIZE
+	pageSize = PAGE_SIZE
 ) => {
 	const [refetchEffect, setRefetchEffect] = useState<number>(0);
 	const [data, setData] = useState<any>();
