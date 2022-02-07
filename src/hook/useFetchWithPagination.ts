@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
 import { DEFAULT_PAGE, PAGE_SIZE } from "../constants";
 
-const useFetchWithPagination = (
+function useFetchWithPagination(
 	fetchCallback: (params: any) => Promise<any>,
 	pageSize = PAGE_SIZE
-) => {
-	const [refetchEffect, setRefetchEffect] = useState<number>(0);
+) {
+	const [refetchEffect, setRefetchEffect] = useState(0);
 	const [data, setData] = useState<any>();
 	const [error, setError] = useState<any>();
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	// to check if the component is umounted before the promise fullfilled or rejected
 	// so the hook did not call setState after the component already unmounted
 	// causing memory leak.
-	const [isMounted, setIsMounted] = useState<boolean>(true);
+	const [isMounted, setIsMounted] = useState(true);
 
 	const [page, setPage] = useState(DEFAULT_PAGE);
 

@@ -39,7 +39,12 @@ const AdditionEmployeeForm: FC<IAdditionEmployeeFormProps> = ({
 						label="Employee's name"
 						required
 						tooltip="This is a required field"
-						rules={[{ required: true, message: "Name is required" }]}
+						rules={[{ required: true, message: "Name is required" },
+						{
+							required: true,
+							whitespace: true,
+							message: "Please input employee's name or delete this field.",
+						}]}
 					>
 						<Input placeholder="Enter employee's name" />
 					</Form.Item>
@@ -65,6 +70,11 @@ const AdditionEmployeeForm: FC<IAdditionEmployeeFormProps> = ({
 						tooltip="This is a required field"
 						rules={[
 							{ required: true, message: "Employee's position is required" },
+							{
+								required: true,
+								whitespace: true,
+								message: "Please input employee's position or delete this field.",
+							}
 						]}
 					>
 						<Input placeholder="Enter employee's position" />
